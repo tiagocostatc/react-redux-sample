@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from "react-redux";
 
-export const UserInfo = (props) => {
+const UserInfoComponent = (props) => {
 
     return (
         <div>
@@ -11,7 +11,15 @@ export const UserInfo = (props) => {
     )
 }
 
-UserInfo.propTypes = {
-    username: PropTypes.string.isRequired,
-    company: PropTypes.string.isRequired
-}
+const mapStateToProps = (store) => {
+    const {username,company} = store.userReducer;
+    return {
+        username,company
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {};
+};
+
+export const UserInfo = connect(mapStateToProps, mapDispatchToProps)(UserInfoComponent);
