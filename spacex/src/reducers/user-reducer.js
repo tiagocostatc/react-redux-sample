@@ -1,11 +1,13 @@
 import {
     SET_COMPANY,
     SET_USER,
+    SET_SPACE_X_INFO,
 } from "../actions/user-actions";
 
 export const user_initial_state = {
     company: "",
-    username: ""
+    username: "",
+    spaceXInfo: undefined
 };
 
 export default (state = user_initial_state, action) => {
@@ -15,6 +17,8 @@ export default (state = user_initial_state, action) => {
             return ({...state, company: action.company});
         case SET_USER:
             return ({...state, username: action.user});
+        case SET_SPACE_X_INFO:
+            return ({...state, spaceXInfo: action.info});
         default:
             return state;
     }
